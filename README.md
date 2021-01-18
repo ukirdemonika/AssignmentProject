@@ -1,3 +1,4 @@
+For Executing app run following two command:
 1.npm install
 2.npm start
 
