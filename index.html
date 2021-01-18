@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html oncontextmenu="return false">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script type="module" src="js/index.js"></script>
+</head>
+<body style="background: white;">
+    <h3>Screenshot of Page in Electron</h3> 
+    <button id="screenshot" class="btn btn-primary"> 
+        Take Screenshot 
+    </button> 
+    <br><br>
+    <b>OS Information:</b>
+    <div>
+        <table class="table" border="1">
+            <thead class="table-info">
+            <tr>
+                <th scope="col">Sr.No</th>
+                <th scope="col">
+                    Parameter
+                </th>
+                <th scope="col">Information</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row" rowspan="2">1</th>
+                
+                <td>
+                    Total RAM
+                </td>
+                <td id="total"></td>
+        
+            </tr>
+            <tr>
+                
+                
+                <td>
+                    Available RAM
+                </td>
+                <td id="available"></td>
+        
+            </tr>
+         
+            <tr>
+                <th scope="row">2</th>
+                <td>
+                    OS name
+                </td>
+                <td id="osname"></td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>
+                    OS Architecture
+                </td>
+                <td id="arch"></td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>
+                    Hard Drive Space
+                </td>
+                <td id="size"></td>
+            </tr>
+            <tbody>
+        </table>
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
+<script>
+    var platform = process.platform;
+    console.log(platform)
+    $(document).ready(function(){
+    if (platform === 'darwin') {
+    
+    document.addEventListener("keydown", function(event) {
+        console.log(event)
+        if(event.keyCode==91 || event.keyCode==16 || event.keyCode==51 && event.keyCode==52){
+            alert("Cannnot print Screen");
+             return false;
+        }
+    })
+
+
+    }
+    else if(platform === 'win32'){
+        document.addEventListener("keydown", function(event) {
+        console.log(event)
+        if(event.keyCode==44 || event.keyCode==91){
+            alert("Cannnot print Screen");
+             return false;
+        }
+    })
+    
+    }
+
+   $(document).on("contextmenu",function(e)
+{
+alert('Right Click Not Allowed')
+e.preventDefault();
+});
+    })
+</script>
+</body>
+
+
+</html>

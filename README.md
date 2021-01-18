@@ -12,4 +12,23 @@ For Mac(dmg) add following code in package.json:
     
   },
 
+For Windows(exe) add following code in package.json:
+ "build": {
+    "appId": "com.projectAssignment",
+    "productName": "projectAssignment",
+    "win": {
+      "target": "nsis"
+    },
+    "directories": {
+      "output": "build"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": true,
+      "createStartMenuShortcut": true,
+      "createDesktopShortcut": true,
+      "runAfterFinish": true
+    }
+  },
+
 
